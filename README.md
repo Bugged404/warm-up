@@ -11,7 +11,7 @@ Ayaka and Gaurav, you two have mentioned that you're not free to meet today, so 
 ### Individual Steps
 - clone the repo into your local workspace
 - create a branch titled yourname-practice
-  - go to group#/individual-practice, create an html file yourname.html
+  - go to group#/individual-practice, create a js file, yourname.js (you can also do html or css - however you want to try approaching this)
   - pick one suite (symbol) of cards, and try making designs for a card from that suite (number of your choice, you can do multiple if you want)
     - try different ways of visualizing it out! ASCII, unicode, SVG
     - refer to existing code, the professor's demo from class for help
