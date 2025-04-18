@@ -25,6 +25,10 @@ Find a time to meet up in person or call your mini-group to cowork, figuring out
 2. Open necessary code files in your groups folder
 3. Write code to visualize a card and perform the flip and shuffle in a single file
    1. try out the VSCode liveshare extension to collaborate together on a single file 
+   2. Make sure to comment your code!
+4. Commit and push changes to branch once you've gotten it working
+5. Open a pull request to merge with the main branch
+6. Merge your branch with the main branch
 
 **Complete these steps by Saturday noon!**  
 We'll meet up on Slack at **4-5 pm on Saturday** with whoever is free to discuss our approaches to task 1 of the exercise, and figure out expansions (parts 2 and 3).
