@@ -28,18 +28,49 @@ const deckSetup = (function() {
     }
 
     return {
-        cardDeck: function(){
+        createDeck: function(){
             const deck = [];
             for(let i=0; i<values.length;i++){
                 for(const s in suits){
                     deck.push(cardSetup(values[i],s));
                 }
             }
-            deck.forEach(item => {
-                console.log(item);
-            });
+            return deck;
         }
     };
 })();
 
-deckSetup.cardDeck();
+function shuffleDeck(deck){
+    if(deck.length===0){
+        deck = deckSetup.createDeck();
+    }
+    let currentIndex = deck.length;
+    while(currentIndex != 0){
+        // get random location in bounds
+        let rand = Math.floor(Math.random()*currentIndex);
+        currentIndex--;
+        // swap locations
+        [deck[currentIndex],deck[rand]] = [deck[rand],deck[currentIndex]];
+    }
+}
+
+function drawCard(deck,count){
+    if(count<=0){
+        throw new error("Drawing 0 cards: cannot draw negative cards.");
+
+    }
+    if(count>deck.length){
+        throw new error(`Requesting to draw ${count} cards when there are only ${deck.length} remaining in the deck.`);
+    }
+    const drawn = [];
+    for(let i=0; i<count; i++){
+        drawn.push(deck.pop());
+    }
+    drawn.forEach(item => {
+        console.log(item);
+    });
+    console.log(`${deck.length} cards remaining.`)
+}
+
+let deck = deckSetup.createDeck();
+drawCard(deck,10);
