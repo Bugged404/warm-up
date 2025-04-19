@@ -10,12 +10,13 @@ Ayaka and Gaurav, you two have mentioned that you're not free to meet today, so 
 
 ### Individual Steps
 - clone the repo into your local workspace
-- create a branch titled yourname-practice
+- create a branch titled yourname-practice and go into it: `git checkout -b <yourname-practice>`
   - go to group#/individual-practice, create an html file yourname.html
-  - pick one suite (symbol) of cards, and try making designs for a card from that suite (number of your choice, you can do multiple if you want)
-    - try different ways of visualizing it out! ASCII, unicode, SVG
+  - starting with one suit (symbol) of cards (you can do multiple/ all of them if you want),try making designs for a card from that suite (number of your choice, you can do multiple if you want)
+    - try different ways of visualizing it out! ASCII and unicode, HTML, etc
     - refer to existing code, the professor's demo from class for help
 - commit and push your changes to your branch
+- publish your branch: `git push origin <yourname-practice>`
 - go to github.com and open a pull request to merge to main
 - then merge your branch to main
   
