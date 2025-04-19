@@ -12,19 +12,32 @@
             font-family: cursive;
         }
 
-        #deck {
+        #table {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            margin-top: 20px;
+            align-items: flex-start;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        #deck,
+        #revealed {
+            width: 120px;
+            height: 180px;
+            position: relative;
         }
 
         playing-card {
-            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 120px;
             height: 180px;
-            margin: 10px;
             perspective: 1000px;
+            /* Use --i for stacking order */
+            z-index: var(--i);
+            /* Give a slight vertical offset per card (adjust multiplier as needed) */
+            transform: translateY(calc(var(--i) * 0.5px));
         }
 
         playing-card:hover {
@@ -81,12 +94,14 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
+
+
         .joker {
             width: 40px;
             height: auto;
         }
 
-        .title-banner {
+        .game_name {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -94,7 +109,7 @@
             margin-top: 20px;
         }
 
-        .left-joker {
+        .left_joker {
             transform: scaleX(-1);
         }
     </style>
@@ -102,15 +117,18 @@
 
 <body>
 
-    <div class="title-banner">
-        <img src="card_images/The_Jolly_Nero.jpg" class="joker left-joker" alt="Joker Left">
+    <div class="game_name">
+        <img src="card_images/The_Jolly_Nero.jpg" class="joker left_joker" alt="Joker Left">
         <h1>Black Jack</h1>
-        <img src="card_images/The_Jolly_Nero.jpg" class="joker right-joker" alt="Joker Right">
+        <img src="card_images/The_Jolly_Nero.jpg" class="joker right_joker" alt="Joker Right">
     </div>
 
     <button onclick="shuffleDeck()">Shuffle</button>
 
-    <div id="deck"></div>
+    <div id="table">
+        <div id="deck"></div>
+        <div id="revealed"></div>
+    </div>
 
     <script src="script.js"></script>
 </body>
