@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Card Deck</title>
+    <style>
+        body {
+            background-color: #d86513;
+            color: white;
+            text-align: center;
+            font-family: cursive;
+        }
+
+        #deck {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        playing-card {
+            display: inline-block;
+            width: 120px;
+            height: 180px;
+            margin: 10px;
+            perspective: 1000px;
+        }
+
+        playing-card:hover {
+            filter: drop-shadow(0 0 5px hsla(0, 0%, 100%, 0.667));
+        }
+
+        .card_trans {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .card_front,
+        .card_back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card_front {
+            transform: rotateY(180deg);
+        }
+
+        .card_back {
+            background-image: url("card_images/back.png");
+        }
+
+        .card_trans.flipped {
+            transform: rotateY(180deg);
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            background: linear-gradient(135deg, #4b6cb7, #182848);
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #182848, #0bc1ea);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .joker {
+            width: 40px;
+            height: auto;
+        }
+
+        .title-banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .left-joker {
+            transform: scaleX(-1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="title-banner">
+        <img src="card_images/The_Jolly_Nero.jpg" class="joker left-joker" alt="Joker Left">
+        <h1>Black Jack</h1>
+        <img src="card_images/The_Jolly_Nero.jpg" class="joker right-joker" alt="Joker Right">
+    </div>
+
+    <button onclick="shuffleDeck()">Shuffle</button>
+
+    <div id="deck"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
