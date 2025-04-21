@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Card Deck</title>
+    <style>
+        body {
+            background-color: #d86513;
+            color: white;
+            text-align: center;
+            font-family: cursive;
+        }
+
+        #table {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        #deck,
+        #revealed {
+            width: 120px;
+            height: 180px;
+            position: relative;
+        }
+
+        playing-card {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 120px;
+            height: 180px;
+            perspective: 1000px;
+            /* Use --i for stacking order */
+            z-index: var(--i);
+            /* Give a slight vertical offset per card (adjust multiplier as needed) */
+            transform: translateY(calc(var(--i) * 0.5px));
+        }
+
+        playing-card:hover {
+            filter: drop-shadow(0 0 5px hsla(0, 0%, 100%, 0.667));
+        }
+
+        .card_trans {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .card_front,
+        .card_back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        #revealed .card_trans:hover .card_back{
+            transform: rotateY(180deg);
+        }
+
+        .card_back {
+            background-image: url("card_images/back.png");
+        }
+
+        #revealed .card_trans.flipped:hover .card_trans {
+            transform: rotateY(180deg);
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            background: linear-gradient(135deg, #4b6cb7, #182848);
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #182848, #0bc1ea);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+
+
+        .joker {
+            width: 40px;
+            height: auto;
+        }
+
+        .game_name {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .left_joker {
+            transform: scaleX(-1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="game_name">
+        <img src="card_images/The_Jolly_Nero.jpg" class="joker left_joker" alt="Joker Left">
+        <h1>Black Jack</h1>
+        <img src="card_images/The_Jolly_Nero.jpg" class="joker right_joker" alt="Joker Right">
+    </div>
+
+    <button onclick="shuffleDeck()">Shuffle</button>
+
+    <div id="table">
+        <div id="deck"></div>
+        <div id="revealed"></div>
+    </div>
+
+    <script src="script_final.js"></script>
+</body>
+
+</html>
