@@ -45,7 +45,7 @@ function revealCard(filename) {
 
   const card = document.createElement('playing-card');
   const inner = document.createElement('div');
-  inner.className = 'card_trans flipped';
+  inner.className = 'card_trans';
 
   const front = document.createElement('div');
   front.className = 'card_front';
